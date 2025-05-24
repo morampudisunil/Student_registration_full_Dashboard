@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#" id="home-link">Home</a></li>
+      <li><a href="#" id="students-link">Students</a></li>
+      <li><a href="#" id="services-link">Services</a></li>
+      <li><a href="#" id="about-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div id="content-area">
+    <!-- Home Section (default view) -->
+    <div id="home-section" class="container">
+      <div class="home-options">
+        <button id="new-user-reg">New User Registration</button>
+          <button id="students-list">Registered Students</button>
+      </div>
+    </div>
+    
+
+    <!-- Registration Form Section (hidden initially) -->
+    <div id="registration-section" class="container" style="display:none;">
+      <div class="form-section">
+        <div class="form-header">Student Registration</div>
+        <form id="registrationForm" novalidate>
+          <!-- Row 1 -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="required">First Name </label>
+              <input type="text" id="firstName" required>
+              <span class="error" id="firstNameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="middleName">Middle Name</label>
+              <input type="text" id="middleName">
+              <span class="error" id="middleNameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="required">Last Name </label>
+              <input type="text" id="lastName" required>
+              <span class="error" id="lastNameError"></span>
+            </div>
+          </div>
+          <br>
+          <!-- Row 2: Gender and Phone side by side -->
+          <div class="form-row row-2">
+            <div class="form-group">
+              <label class="required">Gender</label>
+              <div style="display: flex; gap: 20px;">
+                <label><input type="radio" name="gender" value="Male" checked /> Male</label>
+                <label><input type="radio" name="gender" value="Female" /> Female</label>
+              </div>
+            </div>
+            <div class="form-group phone-group">
+              <label for="phone" class="required">Phone Number</label>
+              <input type="text" id="phone" maxlength="10" />
+              <span class="error" id="phoneError"></span>
+            </div>
+            <div class="form-group"></div>
+          </div>
+          <br>
+          <!-- Row 3 -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="required"> Email </label>
+              <input type="email" id="email">
+              <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="currentAddress" class="required">Current Address </label>
+              <input type="text" id="currentAddress">
+              <span class="error" id="currentAddressError"></span>
+            </div>
+<div class="form-group">
+  <label for="permanentAddress" class="required">Permanent Address</label>
+  <input type="text" id="permanentAddress">
+
+  <span id="permanentAddressError">
+    <label class="required" style="display: inline-flex; align-items: center; white-space: nowrap; gap: 4px;">
+      <input type="checkbox" id="copyAddress">
+      Same as current address <span style="color: red;"></span>
+    </label>
+  </span>
+</div>
+
+
+
+          </div>
+          <br>
+          <!-- Row 4 -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="course" class="required">Course </label>
+              <select id="course">
+                <option value="">--Select--</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>ME</option>
+                <option>CE</option>
+                <option>IT</option>
+              </select>
+              <span class="error" id="courseError"></span>
+            </div>
+            <div class="form-group">
+              <label for="fatherName" class="required">Father's Name </label>
+              <input type="text" id="fatherName">
+              <span class="error" id="fatherNameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="motherName" class="required">Mother's Name</label>
+              <input type="text" id="motherName">
+              <span class="error" id="motherNameError"></span>
+            </div>
+          </div>
+          <br>
+          <!-- Row 5 -->
+          <div class="form-row row-5">
+            <div class="form-group">
+  <label style="display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">
+    <input type="checkbox" id="physicallyChallenged">
+    Physically Challenged
+  </label>
+</div>
+
+            <div class="form-group range-grou">
+              <label for="tenth" class="required">Tenth %:</label>
+              <input type="range" id="tenth" min="0" max="100" value="0"
+                     oninput="document.getElementById('tenthVal').textContent = this.value + '%'">
+              <span id="tenthVal">0%</span>
+            </div>
+            <div class="form-grou range-grou">
+              <label for="inter" class="required">Inter/Diploma %:</label>
+              <input type="range" id="inter" min="0" max="100" value="0"
+                     oninput="document.getElementById('interVal').textContent = this.value + '%'">
+              <span id="interVal">0%</span>
+            </div>
+          </div>
+          <div class="center-button">
+            <button type="submit">Register Student</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Students Section (hidden initially) -->
+    <div id="students-section" class="container" style="display:none;">
+      <div class="table-section">
+        <h3>Registered Students</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>10th %</th>
+              <th>12th/Diploma %</th>
+              <th>Modification</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+        <div class="student-options">
+          <button id="new-student-reg">New Student Registration</button>
+          <button id="students-back-btn">Home</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section (hidden initially) -->
+    <div id="services-section" style="display:none;">
+      <h2>Services Section</h2>
+      <p>This is the services section content.</p>
+    </div>
+
+    <!-- About Section (hidden initially) -->
+    <div id="about-section" style="display:none;">
+      <h2>About Section</h2>
+      <p>This is the about section content.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
