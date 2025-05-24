@@ -34,7 +34,8 @@ This is a responsive Student Registration Form web application built using **HTM
 
 ## 📸 Screenshots
 
-*!(https://github.com/user-attachments/assets/8466815c-37aa-4b31-bf02-77c7875d9bf1)![image](https://github.com/user-attachments/assets/e62f9d24-9e17-497d-bfee-6a079bc6daf2)
+https://github.com/user-attachments/assets/8466815c-37aa-4b31-bf02-77c7875d9bf1
+https://github.com/user-attachments/assets/e62f9d24-9e17-497d-bfee-6a079bc6daf2
 
 
 
